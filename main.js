@@ -18,16 +18,16 @@ function pintura() {
 const arrayPaderes = [];
 const arrayAverturas = [];
 
-let nombre = prompt ("Bienvenido!!! Por favor, ingrese su nombre...");
+let nombre = prompt ("Bienvenido!!! Por favor, ingrese su nombre...").toUpperCase();
 let saludo = alert ("Hola " + nombre + ", vamos a calcular cuanta pintura necesitas...");
-let pared = prompt ("Comenzamos con la primera Pared? (si / no)")
+let pared = prompt ("Comenzamos con la primera Pared? (si / no)").toUpperCase();
 
 
-while (pared != "si" && pared != "no") {
-    pared = prompt("Solo responde con si / no. \n Quieres agregar otra Pared?")
+while (pared != "SI" && pared != "NO") {
+    pared = prompt("Solo responde con si / no. \n Comenzamos con la primer Pared?").toUpperCase();
 }
 
-while (pared == "si") {
+while (pared == "SI") {
     let nombrePared = "Pared"
     let altoPared = parseFloat(prompt("Ingrese el ALTO de la Pared "));
     let anchoPared = parseFloat(prompt("Ingrese el ANCHO de la Pared "));
@@ -36,11 +36,11 @@ while (pared == "si") {
 
 
 
-    let puerta = prompt ("Esta pared, tiene una puerta? (si / no)");
-    while (puerta != "si" && puerta != "no"){
-        puerta = prompt("Solo responde con si / no. \n Esta pared, tiene una puerta?")
+    let puerta = prompt ("Esta pared, tiene una puerta? (si / no)").toUpperCase();
+    while (puerta != "SI" && puerta != "NO"){
+        puerta = prompt("Solo responde con si / no. \n Esta pared, tiene una puerta?").toUpperCase();
     }
-    if (puerta == "si") {
+    if (puerta == "SI") {
         let nombrePuerta = "Puerta"
         let altoPuerta = parseFloat(prompt("Ingrese el ALTO de la Puerta "));
         let anchoPuerta = parseFloat(prompt("Ingrese el ANCHO de la Puerta "));
@@ -50,27 +50,27 @@ while (pared == "si") {
 
 
 
-    let ventana = prompt ("Esta pared, tiene ventana? (si / no)");
+    let ventana = prompt ("Esta pared, tiene ventana? (si / no)").toUpperCase();
 
-    while (ventana != "si" && ventana != "no") {
-        ventana = prompt("Solo responde con si / no. \n Esta pared, tiene Ventanas?")
+    while (ventana != "SI" && ventana != "NO") {
+        ventana = prompt("Solo responde con si / no. \n Esta pared, tiene Ventanas?").toUpperCase();
     }
-        while (ventana != "no") {
+        while (ventana != "NO") {
             let nombreVentana = "ventana"
             let altoVentana = parseFloat(prompt("Ingrese el ALTO de la Ventana"));
             let anchoVentana = parseFloat(prompt("Ingrese el ANCHO de la Ventana"));
             let ventanaResultado = new Medidas (nombreVentana, altoVentana, anchoVentana);
             arrayAverturas.push(ventanaResultado);
             ventana = prompt ("Quieres agregar otra Ventana? (si / no)");
-            while (ventana != "si" && ventana != "no") {
-                ventana = prompt("Solo responde con si / no. \n Quieres agregar otra Ventanas?")
+            while (ventana != "SI" && ventana != "NO") {
+                ventana = prompt("Solo responde con si / no. \n Quieres agregar otra Ventanas?").toUpperCase();
             }
             }
     
-    pared = prompt ("Quieres agregar otra Pared? (si / no)")
+    pared = prompt ("Quieres agregar otra Pared? (si / no)").toUpperCase();
 
-    while (pared != "si" && pared != "no") {
-        pared = prompt("Solo responde con si / no. \n Quieres agregar otra Pared?")
+    while (pared != "SI" && pared != "NO") {
+        pared = prompt("Solo responde con si / no. \n Quieres agregar otra Pared?").toUpperCase();
     }
 
     }
