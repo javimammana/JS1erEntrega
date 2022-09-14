@@ -104,7 +104,7 @@ switch (opcion) {
         alert (nombre + ", Usando pintura Látex, la cual cubre 4m2 por litro, necesitas " + latex + "Lts para los " + m2total + "m2 de superficie a pintar, te recomendamos dar dos manos de pintura.-");
         break;
     case 4:
-        let alAgua = ((m2total/7)*2).toFixed(0)
+        let alAgua = (m2total/7).toFixed(0)
         alert (nombre + ", Usando pintura Al Agua, la cual cubre 7m2 por litro, necesitas " + alAgua + "Lts para los " + m2total + "m2 de superficie a pintar, teniendo en cuenta dos manos de pintura.-");
         break;
 
