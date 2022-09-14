@@ -9,6 +9,9 @@ class Medidas {
 
 function pintura() {
     let opcion = parseInt(prompt("Que tipo de pintura vamos a usar?: \n 1) Sintetica \n 2) Acrilica \n 3) Latex \n 4) Al Agua"));
+    while (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4") {
+        opcion = parseInt(prompt("Que tipo de pintura vamos a usar? (Solo ingresa el número de la opcion): \n 1) Sintetica \n 2) Acrilica \n 3) Latex \n 4) Al Agua"));
+    }
     return opcion;
 }
 
@@ -17,14 +20,21 @@ const arrayAverturas = [];
 
 let nombre = prompt ("Bienvenido!!! Por favor, ingrese su nombre...");
 let saludo = alert ("Hola " + nombre + ", vamos a calcular cuanta pintura necesitas...");
-let pared = prompt ("Quieres agregar una Pared? (si / no)")
+let pared = prompt ("Comenzamos con la primera Pared? (si / no)")
 
-while (pared != "no") {
+
+while (pared != "si" && pared != "no") {
+    pared = prompt("Solo responde con si / no. \n Quieres agregar otra Pared?")
+}
+
+while (pared == "si") {
     let nombrePared = "Pared"
     let altoPared = parseFloat(prompt("Ingrese el ALTO de la Pared "));
     let anchoPared = parseFloat(prompt("Ingrese el ANCHO de la Pared "));
     let paredResultado = new Medidas (nombrePared, altoPared, anchoPared);
     arrayPaderes.push(paredResultado);
+
+
 
     let puerta = prompt ("Esta pared, tiene una puerta? (si / no)");
     while (puerta != "si" && puerta != "no"){
@@ -38,18 +48,31 @@ while (pared != "no") {
         arrayAverturas.push(puertaResultado);
     } 
 
-    let ventana = prompt ("Esta pared, tiene ventana? (si / no)");
-    while (ventana != "no") {
-        let nombreVentana = "ventana"
-        let altoVentana = parseFloat(prompt("Ingrese el ALTO de la Ventana"));
-        let anchoVentana = parseFloat(prompt("Ingrese el ANCHO de la Ventana"));
-        let ventanaResultado = new Medidas (nombreVentana, altoVentana, anchoVentana);
-        arrayAverturas.push(ventanaResultado);
-        ventana = prompt ("Quieres agregar otra Ventana? (si / no)");
-        }
 
-        
+
+    let ventana = prompt ("Esta pared, tiene ventana? (si / no)");
+
+    while (ventana != "si" && ventana != "no") {
+        ventana = prompt("Solo responde con si / no. \n Esta pared, tiene Ventanas?")
+    }
+        while (ventana != "no") {
+            let nombreVentana = "ventana"
+            let altoVentana = parseFloat(prompt("Ingrese el ALTO de la Ventana"));
+            let anchoVentana = parseFloat(prompt("Ingrese el ANCHO de la Ventana"));
+            let ventanaResultado = new Medidas (nombreVentana, altoVentana, anchoVentana);
+            arrayAverturas.push(ventanaResultado);
+            ventana = prompt ("Quieres agregar otra Ventana? (si / no)");
+            while (ventana != "si" && ventana != "no") {
+                ventana = prompt("Solo responde con si / no. \n Quieres agregar otra Ventanas?")
+            }
+            }
+    
     pared = prompt ("Quieres agregar otra Pared? (si / no)")
+
+    while (pared != "si" && pared != "no") {
+        pared = prompt("Solo responde con si / no. \n Quieres agregar otra Pared?")
+    }
+
     }
 
 const m2parede = arrayPaderes.reduce ((acumulador, elemento) => acumulador + elemento.metrosCuadrados, 0);
@@ -70,19 +93,19 @@ switch (opcion) {
 
     case 1:
         let sintetica = ((m2total/8)*2).toFixed(0)
-        console.log ("Usando pintura Sintetica (cubre 8m2 por litro), Necesitas " + sintetica + "Lts de Pintura, dando dos manos de pintura, para los " + m2total + "m2 de superficie a pintar.-");
+        alert (nombre + ", Usando pintura Sintetica, la cual cubre 8m2 por litro, necesitas " + sintetica + "Lts para los " + m2total + "m2 de superficie a pintar, teniendo en cuenta dos manos de pintura.-");
         break;
     case 2:
         let acrilica = ((m2total/12)*2).toFixed(0)
-        console.log ("Usando pintura Acrilica (cubre 12m2 por litro), Necesitas " + acrilica + "Lts de Pintura, dando dos manos de pintura, para los " + m2total + "m2 de superficie a pintar.-");
+        alert (nombre + ", Usando pintura Acrilica, la cual cubre 12m2 por litro, necesitas " + acrilica + "Lts para los " + m2total + "m2 de superficie a pintar, teniendo en cuenta dos manos de pintura.-");
         break;
     case 3:
         let latex = ((m2total/4)*2).toFixed(0)
-        console.log ("Usando pintura Latex (cubre 4m2 por litro), Necesitas " + latex + "Lts de Pintura, dando dos manos de pintura, para los " + m2total + "m2 de superficie a pintar.-");
+        alert (nombre + ", Usando pintura Latex, la cual cubre 4m2 por litro, necesitas " + latex + "Lts para los " + m2total + "m2 de superficie a pintar, teniendo en cuenta dos manos de pintura.-");
         break;
     case 4:
         let alAgua = ((m2total/7)*2).toFixed(0)
-        console.log ("Usando pintura Al Agua (cubre 7m2 por litro), Necesitas " + alAgua + "Lts de Pintura, dando dos manos de pintura, para los " + m2total + "m2 de superficie a pintar.-");    
+        alert (nombre + ", Usando pintura Al Agua, la cual cubre 7m2 por litro, necesitas " + alAgua + "Lts para los " + m2total + "m2 de superficie a pintar, teniendo en cuenta dos manos de pintura.-");
         break;
 
     default:
